@@ -56,7 +56,7 @@ root_path=$PWD
 npm install
 
 # Lint own code
-./node_modules/.bin/eslint --ignore-path .gitignore ./
+./node_modules/.bin/eslint --ignore-path .gitignore -c .eslintrc --no-eslintrc ./
 
 # ******************************************************************************
 # First, test the create-react-app development environment.
