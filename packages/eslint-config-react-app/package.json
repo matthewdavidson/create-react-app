@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-mattface",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "ESLint configuration used by @mattface.",
   "repository": "matthewdavidson/create-react-app",
   "license": "BSD-3-Clause",
