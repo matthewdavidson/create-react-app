@@ -91,10 +91,6 @@ cli_path=$PWD/`npm pack`
 # Go to react-scripts
 cd $root_path/packages/react-scripts
 
-# Like bundle-deps, this script modifies packages/react-scripts/package.json,
-# copying own dependencies (those in the `packages` dir) to bundledDependencies
-node $root_path/tasks/bundle-own-deps.js
-
 # Finally, pack react-scripts
 scripts_path=$root_path/packages/react-scripts/`npm pack`
 
