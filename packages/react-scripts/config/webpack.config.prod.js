@@ -119,7 +119,10 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: [
+          paths.appSrc,
+          paths.backpackModulesRegex
+        ],
         loader: 'babel',
         // @remove-on-eject-begin
         query: {
@@ -140,6 +143,10 @@ module.exports = {
       // tags. If you use code splitting, however, any async bundles will still
       // use the "style" loader inside the async code so CSS from them won't be
       // in the main CSS file.
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1&-autoprefixer!postcss!sass')
+      },
       {
         test: /\.css$/,
         // "?-autoprefixer" disables autoprefixer in css-loader itself:

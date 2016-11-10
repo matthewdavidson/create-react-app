@@ -113,7 +113,10 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: [
+          paths.appSrc,
+          paths.backpackModulesRegex
+        ],
         loader: 'babel',
         query: {
           // @remove-on-eject-begin
@@ -131,6 +134,10 @@ module.exports = {
       // "style" loader turns CSS into JS modules that inject <style> tags.
       // In production, we use a plugin to extract that CSS to a file, but
       // in development "style" loader enables hot editing of CSS.
+      {
+        test: /\.scss$/,
+        loader: 'style!css?importLoaders=1!postcss!sass'
+      },
       {
         test: /\.css$/,
         loader: 'style!css?importLoaders=1!postcss'

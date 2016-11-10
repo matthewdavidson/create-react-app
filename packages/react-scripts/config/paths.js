@@ -35,6 +35,9 @@ var nodePaths = (process.env.NODE_PATH || '')
   .filter(Boolean)
   .map(resolveApp);
 
+// Regex to match backpack node modules 
+var backpackModulesRegex = /node_modules\/bpk-/;
+
 // config after eject: we're in ./config/
 module.exports = {
   appBuild: resolveApp('build'),
@@ -46,7 +49,8 @@ module.exports = {
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
   ownNodeModules: resolveApp('node_modules'),
-  nodePaths: nodePaths
+  nodePaths: nodePaths,
+  backpackModulesRegex: backpackModulesRegex
 };
 
 // @remove-on-eject-begin
@@ -66,7 +70,8 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   // this is empty with npm3 but node resolution searches higher anyway:
   ownNodeModules: resolveOwn('../node_modules'),
-  nodePaths: nodePaths
+  nodePaths: nodePaths,
+  backpackModulesRegex: backpackModulesRegex
 };
 // @remove-on-eject-end
 
@@ -82,6 +87,7 @@ if (__dirname.indexOf(path.join('packages', 'react-scripts', 'config')) !== -1) 
     testsSetup: resolveOwn('../template/src/setupTests.js'),
     appNodeModules: resolveOwn('../node_modules'),
     ownNodeModules: resolveOwn('../node_modules'),
-    nodePaths: nodePaths
+    nodePaths: nodePaths,
+    backpackModulesRegex: backpackModulesRegex
   };
 }
